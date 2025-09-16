@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Simple Calculator</title>
+  <style>
+  @keyframes SlideIn {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100%{
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .title-animate{
+    animation: SlideIn 1.5s ease-out forwards;
+  }
+
+
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+      }
+    50% { transform: translateY(-10px);
+      box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.3);
+    }
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  </style>
+
+</head>
+
+<body>
+<div class= "flex flex-col justify-center items-center h-screen bg-gradient-to-br from-blue-100 to-purple-200">
+
+    <h1 class="text-[40px] font-extrabold mb-14 font-sans title-animate">SIMPLE CALCULATOR</h1>
+
+<div class="bg-white p-6 rounded-3xl shadow-2xl w-100 border border-gray-200 animate-float">
+  <div class = "flex gap-2">
+  <input type="text" 
+  id = "display" 
+  class = "h-14 w-[80%] text-right text-2xl font-mono bg-gray-100 border border-gray-300 mb-4 rounded-lg px-3" 
+  disabled>
+  <button class = "h-14 bg-red-400 hover:bg-red-700 rounded-lg text-xl text-white font-bold w-[20%]" onclick="clearDisplay()">C</button>
+  </div>
+
+  <div class = "grid grid-cols-4 gap-3">
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('0')">0</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('1')">1</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('2')">2</button>
+    <button class="h-14 bg-orange-400 hover:bg-orange-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('+')">+</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('3')">3</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('4')">4</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('5')">5</button>
+    <button class="h-14 bg-orange-400 hover:bg-orange-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('-')">-</button>  
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('6')">6</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('7')">7</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('8')">8</button>
+    <button class="h-14 bg-orange-400 hover:bg-orange-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('/')">/</button>
+    <button class="h-14 bg-blue-400 hover:bg-blue-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('9')">9</button>
+    <button class="h-14 bg-gray-400 hover:bg-gray-500 rounded-lg text-xl text-white font-semibold" onclick = "appendValue('.')">.</button>
+    <button class="h-14 bg-green-500 hover:bg-green-600 rounded-lg text-xl text-white font-semibold" onclick = "calculate()">=</button>
+    <button class = "h-14 bg-orange-400 hover:bg-orange-500 rounded-lg text-xl text-white font-bold" onclick = "appendValue('*')">*</button>
+    </div>
+  </div>
+  <script src = "./script.js"></script>
+  </div>
+</body>
+</html>
